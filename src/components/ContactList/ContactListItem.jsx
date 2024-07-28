@@ -4,7 +4,7 @@ import css from './ContactListItem.module.css';
 
 const ContactListItem = ({ contact, deleteContact }) => {
   const handleDelete = () => {
-    // deleteContact(contact.id);
+    deleteContact(contact.id);
   };
 
   return (

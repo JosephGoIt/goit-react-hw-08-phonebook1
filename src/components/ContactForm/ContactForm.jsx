@@ -1,40 +1,40 @@
 import React from 'react';
-// import{ useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addContact } from '../../redux/tasks/operations';
-// import { getContacts } from '../../redux/tasks/selectors';
+import{ useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/tasks/contactSlice';
+import { selectContacts } from '../../redux/tasks/selectors';
 import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
-//   const dispatch = useDispatch();
-//   const contacts = useSelector(getContacts);
-//   const [name, setName] = useState('');
-//   const [phone, setPhone] = useState('');
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleNameChange = (e) => {
-    // setName(e.target.value);
+    setName(e.target.value);
   };
 
   const handlePhoneChange = (e) => {
-    // setPhone(e.target.value);
+    setPhone(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (name.trim() === '' || phone.trim() === '') {
-    //   return;
-    // }
+    if (name.trim() === '' || phone.trim() === '') {
+      return;
+    }
 
-    // const nameExists = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
-    // if (nameExists) {
-    //   alert(`${name} already exists in contacts!`);
-    //   return;
-    // }
+    const nameExists = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
+    if (nameExists) {
+      alert(`${name} already exists in contacts!`);
+      return;
+    }
 
-    // dispatch(addContact({ name, phone }));
-    // setName('');
-    // setPhone('');
+    dispatch(addContact({ name, phone }));
+    setName('');
+    setPhone('');
   };
 
   return (
@@ -45,7 +45,7 @@ export const ContactForm = () => {
           type="text"
           name="name"
           pattern="^[a-zA-Za-яА-Я]+(([' \-][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
-        //   value={name}
+          value={name}
           onChange={handleNameChange}
           required
           placeholder="Enter name"
@@ -58,7 +58,7 @@ export const ContactForm = () => {
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
-        //   value={phone}
+          value={phone}
           onChange={handlePhoneChange}
           required
           placeholder="Enter number"
