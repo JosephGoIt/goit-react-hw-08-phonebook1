@@ -4,16 +4,18 @@ import { Helmet } from 'react-helmet';
 import { ContactForm } from '../components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList'
-// import { fetchTasks } from '../redux/tasks/operations';
+import { fetchContacts } from '../redux/tasks/contactSlice';
+import { store } from '../redux/store';
+// import { getIsLoading } from '../redux/tasks/selectors';
 // import { selectLoading } from '../redux/tasks/selectors';
 
 export default function Tasks() {
   // const dispatch = useDispatch();
-  // const isLoading = useSelector(selectLoading);
+  // const isLoading = useSelector(getIsLoading);
 
-  // useEffect(() => {
-  //   dispatch(fetchTasks());
-  // }, [dispatch]);
+  useEffect(() => {
+    store.dispatch(fetchContacts());
+  }, []);
 
   return (
     <>
@@ -21,7 +23,7 @@ export default function Tasks() {
         <title>Your tasks</title>
       </Helmet>
       <ContactForm />
-      {/* <div>{isLoading && 'Request in progress...'}</div> */}
+      {/* {<div>{isLoading && 'Request in progress...'}</div>} */}
       <Filter />
       <ContactList />
     </>
