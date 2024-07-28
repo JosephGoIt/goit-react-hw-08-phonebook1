@@ -9,9 +9,9 @@ const ContactListItem = ({ contact, deleteContact }) => {
 
   return (
     <li className={css.contactListItem}>
-      <div className={css.contactAlign}>
-      <p>{contact.name}</p>
-      <p>{contact.phone}</p>
+      <div className={css.contactAlign}> 
+        <p>{contact.name}</p>
+        <p>{contact.phone}</p>
       </div>
       <button onClick={handleDelete}>Delete</button>
     </li>
