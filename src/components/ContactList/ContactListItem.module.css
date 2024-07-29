@@ -10,9 +10,21 @@
   
   .contactAlign {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
-    margin-right: 30px;
+    margin-left: 10px;
+    width: 60%;
+  }
+
+  .btncon {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .contcon{
+    display: block;
   }
   
   .btnDelete {

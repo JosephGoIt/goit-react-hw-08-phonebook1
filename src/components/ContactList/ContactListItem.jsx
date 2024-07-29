@@ -10,10 +10,12 @@ const ContactListItem = ({ contact, deleteContact }) => {
   return (
     <li className={css.contactListItem}>
       <div className={css.contactAlign}> 
-        <p>{contact.name}</p>
-        <p>{contact.phone}</p>
+        <div className={css.contcon}>{contact.name}</div>
+        <div className={css.contcon}>{contact.phone}</div>
       </div>
+      <div className={css.btncon}>
       <button onClick={handleDelete}>Delete</button>
+      </div>
     </li>
   );
 };

@@ -18,7 +18,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className={css.container}>
+
     <form className={css.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={css.formField}>
         <p className={css.formLabel}>Email</p>
@@ -28,8 +28,8 @@ export const LoginForm = () => {
         <p className={css.formLabel}>Password</p>
         <input type="password" name="password" />
       </label>
-      <button type="submit">Log In</button>
+      <button className={css.formButton} type="submit">Log In</button>
     </form>
-    </div>
+
   );
 };
